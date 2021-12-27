@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/layout/fragment_about.xml" value="0.3328125" />
-        <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/layout/fragment_comment.xml" value="0.3328125" />
+        <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/layout/fragment_comment.xml" value="0.9" />
         <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/layout/fragment_home.xml" value="0.23505434782608695" />
+        <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/layout/fragment_saran.xml" value="0.5" />
+        <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/layout/istilah_hukum_view.xml" value="0.67" />
         <entry key="..\:/TugasAkhirPPB/DailyLegalTerm/app/src/main/res/menu/bottom_menu.xml" value="0.3328125" />
       </map>
     </option>

@@ -1,31 +1,21 @@
-package com.example.kamusistilahhukum;
+package com.example.kamusistilahhukum.view;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.kamusistilahhukum.databinding.FragmentCommentBinding;
-import com.google.android.material.textfield.TextInputEditText;
+import com.example.kamusistilahhukum.databinding.FragmentSaranBinding;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.Objects;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CommentFragment #newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CommentFragment extends Fragment {
+public class SaranFragment extends Fragment {
 
     /*rumus nama binding:
     nama file xml/ layoutnya, dibuat pascal case
@@ -33,13 +23,13 @@ public class CommentFragment extends Fragment {
         menjadi FragmentComment + Binding
         jadinya : FragmentCommentBinding
     */
-    private FragmentCommentBinding bindCommentary;
+    private FragmentSaranBinding bindingSaran;
     private Button submitBtn;
-    private TextInputLayout teksNama,teksKomentar;
-    private TextView testNama,testKomentar;
+    private TextInputLayout teksNama, teksShortDesc, teksLongDesc;
 
 
-    public CommentFragment() {
+
+    public SaranFragment() {
         // Required empty public constructor
     }
 
@@ -53,8 +43,8 @@ public class CommentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //
-        bindCommentary=FragmentCommentBinding.inflate(inflater,container,false);
-        View viewBaruBinding=bindCommentary.getRoot();
+        bindingSaran =FragmentSaranBinding.inflate(inflater,container,false);
+        View viewBaruBinding= bindingSaran.getRoot();
 
         // Inflate the layout for this fragment
         // return inflater.inflate(R.layout.fragment_comment, container, false);
@@ -69,13 +59,12 @@ public class CommentFragment extends Fragment {
 
         Toast.makeText(getContext(),"Komen disini, ya!",Toast.LENGTH_SHORT).show();
 
-        teksNama=bindCommentary.textInputLayoutNama;
-        teksKomentar=bindCommentary.textInputLayoutKomentar;
+        teksNama= bindingSaran.textInputLayoutNama;
+        teksShortDesc = bindingSaran.textInputLayoutShortDesc;
+        teksLongDesc= bindingSaran.textInputLayoutLongDesc;
 
-        testNama=bindCommentary.textViewNama;
-        testKomentar=bindCommentary.textViewKomen;
 
-        submitBtn=bindCommentary.submitButton;
+        submitBtn= bindingSaran.submitButton;
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,15 +76,8 @@ public class CommentFragment extends Fragment {
 
     public void ambilInput(){
         String nama= String.valueOf(teksNama.getEditText().getText());
-        String komentar= String.valueOf(teksKomentar.getEditText().getText());
+        String komentar= String.valueOf(teksShortDesc.getEditText().getText());
 
-        testNama.setText(nama);
-        testKomentar.setText(komentar);
-
-        teksNama.getEditText().setText("");
-        teksNama.clearFocus();
-        teksKomentar.getEditText().setText("");
-        teksKomentar.clearFocus();
 
 
 

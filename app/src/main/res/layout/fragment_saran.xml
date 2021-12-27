@@ -5,41 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CommentFragment">
+    tools:context=".view.SaranFragment">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Komentar"
-        app:layout_constraintBottom_toTopOf="@+id/tvSubtitle"
+        android:layout_marginTop="72dp"
+        android:text="Saran"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvSubtitle"
-        style=" "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Boleh kritik, saran, atau pertanyaan!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Sampaikan saran istilah lain\nyang belum ditampilkan! "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutNama"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="15dp"
-        android:hint="Nama"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutKomentar"
+        android:layout_marginTop="20dp"
+        android:hint="Nama Istilah"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,30 +50,45 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutKomentar"
+        android:id="@+id/textInputLayoutShortDesc"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:hint="Komentar"
-        app:layout_constraintBottom_toTopOf="@+id/submitButton"
+        android:layout_marginTop="12dp"
+        android:hint="Definisi singkat (sepahamnya)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNama"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNama">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextKomentar"
+            android:id="@+id/editTextShortDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="5"
+            android:lines="2"
             tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutLongDesc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutShortDesc">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Tambahan definisi (sepahamnya)"
+            android:lines="4"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Kirim"
         app:icon="@android:drawable/ic_menu_send"
         app:iconPadding="2dp"
@@ -83,30 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702" />
-
-    <TextView
-        android:id="@+id/textViewNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submitButton"
-        app:layout_constraintVertical_bias="0.19" />
-
-    <TextView
-        android:id="@+id/textViewKomen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="168dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.979"
-        app:layout_constraintStart_toEndOf="@+id/textViewNama"
-        app:layout_constraintTop_toBottomOf="@+id/submitButton"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLongDesc"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
