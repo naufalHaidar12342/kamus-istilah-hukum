@@ -1,39 +1,31 @@
 package com.example.kamusistilahhukum.view;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.kamusistilahhukum.R;
 import com.example.kamusistilahhukum.databinding.ActivityMainBinding;
-import com.example.kamusistilahhukum.databinding.FragmentHomeBinding;
-import com.example.kamusistilahhukum.model.IstilahHukum;
-import com.example.kamusistilahhukum.model.IstilahHukumAdapter;
-import com.example.kamusistilahhukum.viewmodel.IstilahHukumViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    ActivityMainBinding bindingMainActivity;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //untuk saat ini orientationnya di kunci pada mode portrait/berdiri
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //menyambungkan
         bottomNavigationView=findViewById(R.id.bottomNavigationView);

@@ -43,17 +43,10 @@ public class Home extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view=LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, container,false);
         rvIstilah=bindingHome.recyclerViewHome;
         listIstilahnya=new ArrayList<>();
-        adapter=new IstilahHukumAdapter();
+        adapter=new IstilahHukumAdapter(listIstilahnya);
+        rvIstilah.setAdapter(adapter);
         rvIstilah.setLayoutManager(
                 new LinearLayoutManager(getContext()));
 
@@ -61,9 +54,24 @@ public class Home extends Fragment {
         istilahModel.getIstilah().observe(getActivity(), new Observer<List<IstilahHukum>>() {
             @Override
             public void onChanged(List<IstilahHukum> istilahHukums) {
-                adapter.submitList(istilahHukums);
+                //adapter.submitList(istilahHukums);
+                listIstilahnya.clear();
+                listIstilahnya.addAll(istilahHukums);
+                adapter.notifyDataSetChanged();
+
             }
         });
+
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        bindingHome=FragmentHomeBinding.inflate(inflater,container,false);
+        View view=bindingHome.getRoot();
+        //view=LayoutInflater.from(getContext()).inflate(R.layout.fragment_home, container,false);
+
 
         // Inflate the layout for this fragment
         return view;

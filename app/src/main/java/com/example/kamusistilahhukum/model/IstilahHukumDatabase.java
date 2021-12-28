@@ -1,6 +1,7 @@
 package com.example.kamusistilahhukum.model;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -23,6 +24,7 @@ public abstract class IstilahHukumDatabase extends RoomDatabase {
             INSTANCE=Room.databaseBuilder(context.getApplicationContext(),
                     IstilahHukumDatabase.class,"database_istilah")
                     .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
                     .addCallback(dbCallback)
                     .build();
         }
@@ -67,5 +69,45 @@ public abstract class IstilahHukumDatabase extends RoomDatabase {
             });
         }
     };
+
+//    private static RoomDatabase.Callback dbCallback=new RoomDatabase.Callback(){
+//        IstilahHukumDao daos;
+//        @Override
+//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+//            super.onCreate(db);
+//            new PopulateDBAsyncTask(daos).execute();
+//        }
+//    };
+
+//    private static class PopulateDBAsyncTask extends AsyncTask<Void,Void,Void>{
+//        private IstilahHukumDao istilahDao;
+//
+//        public PopulateDBAsyncTask(IstilahHukumDao istilahDao) {
+//            this.istilahDao = istilahDao;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... voids) {
+//            istilahDao.insertIstilah(new IstilahHukum("abolisi",
+//                    "peniadaan pidana",
+//                    "Abolisi adalah peniadaan/penghapusan peristiwa pidana. " +
+//                            "Hak ini diberikan kepada narapidana yang sedang menjalani" +
+//                            "persidangan dan belum ada keputusan dari sidang"));
+//
+//            istilahDao.insertIstilah(new IstilahHukum("abolisi",
+//                    "peniadaan pidana",
+//                    "Abolisi adalah peniadaan/penghapusan peristiwa pidana. " +
+//                            "Hak ini diberikan kepada narapidana yang sedang menjalani" +
+//                            "persidangan dan belum ada keputusan dari sidang"));
+//
+//            istilahDao.insertIstilah(new IstilahHukum("abolisi",
+//                    "peniadaan pidana",
+//                    "Abolisi adalah peniadaan/penghapusan peristiwa pidana. " +
+//                            "Hak ini diberikan kepada narapidana yang sedang menjalani" +
+//                            "persidangan dan belum ada keputusan dari sidang"));
+//            return null;
+//        }
+//    }
+
 
 }
