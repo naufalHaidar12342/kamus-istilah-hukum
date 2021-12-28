@@ -2,4 +2,12 @@
     <string name="app_name">Kamus Istilah Hukum</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_desc">
+        <p dir="ltr">
+            Aplikasi ini dibuat untuk memberikan penjelasan semudah mungkin
+            bagi orang awam termasuk saya sebagai pengembang aplikasi.</p>
+        <br />
+        <p>Saya sadar bahwa ketepatan penjelasan istilah hukum
+            dalam aplikasi ini memang masih jauh dari kata tepat</p>
+    </string>
 </resources>

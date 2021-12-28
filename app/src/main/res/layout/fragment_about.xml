@@ -6,31 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".view.AboutFragment">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageViewMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.137"
+        app:shapeAppearanceOverlay="@style/RoundedCorner" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        app:cardBackgroundColor="#F3E9FC"
+        app:contentPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.054">
+        app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewMe"
+        app:layout_constraintVertical_bias="0.173">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Voluptates voluptas omnis quos provident adipisci. Et suscipit sed ea non nulla quasi ut explicabo. Veritatis est minus officia dolor. In voluptatem ut magni. Itaque omnis porro delectus numquam id rerum rerum ea. Eveniet iure neque autem sit." />
-    </androidx.cardview.widget.CardView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvAboutMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:text="@string/app_desc"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
