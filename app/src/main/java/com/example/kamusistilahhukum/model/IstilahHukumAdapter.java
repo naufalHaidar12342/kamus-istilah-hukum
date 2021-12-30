@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -72,12 +73,15 @@ public class IstilahHukumAdapter extends RecyclerView.Adapter<IstilahHukumAdapte
         public TextView istilah;
         public TextView deskripsiSingkat;
         public ConstraintLayout layoutIstilah;
+        public ImageView paluHakim;
 
         public IstilahHukumViewHolder(@NonNull View itemView) {
             super(itemView);
             istilah=itemView.findViewById(R.id.textViewIstilah);
             deskripsiSingkat=itemView.findViewById(R.id.tvShortDesc);
             layoutIstilah=itemView.findViewById(R.id.layout_tiap_istilah_hukum);
+            paluHakim=itemView.findViewById(R.id.imgGavelCourt);
+            paluHakim.setImageResource(R.drawable.outline_gavel_black_36);
 
         }
     }

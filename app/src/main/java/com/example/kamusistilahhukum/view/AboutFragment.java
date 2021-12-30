@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class AboutFragment extends Fragment {
     FragmentAboutBinding bindingAbout;
     ShapeableImageView img;
     TextView aboutMe;
+    ImageButton github, telegram;
 
     public AboutFragment() {
         // Required empty public constructor
@@ -47,7 +49,8 @@ public class AboutFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         img=bindingAbout.shapeableImageViewMe;
         aboutMe=bindingAbout.tvAboutMe;
-        img.setImageResource(R.drawable.ic_launcher_foreground);
+
+        img.setImageResource(R.drawable.outline_android_black_48);
 
     }
 }

@@ -8,9 +8,9 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageViewMe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_foreground"
+        android:layout_width="75dp"
+        android:layout_height="71dp"
+        android:src="@drawable/outline_android_black_48"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -20,6 +20,7 @@
         app:shapeAppearanceOverlay="@style/RoundedCorner" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#F3E9FC"
@@ -29,7 +30,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewMe"
-        app:layout_constraintVertical_bias="0.173">
+        app:layout_constraintVertical_bias="0.086">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -40,11 +41,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
-                android:text="@string/app_desc"
+                android:text="Aplikasi berbasis Java dan menggunakan AndroidX dependencies.\n~Naufal Haidar Rauf"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <ImageButton
+        android:id="@+id/imgButtonGithub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginBottom="364dp"
+        android:src="@drawable/github_fill_32px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <ImageButton
+        android:id="@+id/imgButtonTelegram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="356dp"
+        android:src="@drawable/telegram_fill_32px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+        app:layout_constraintVertical_bias="0.606" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
