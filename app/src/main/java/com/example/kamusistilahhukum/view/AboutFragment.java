@@ -1,20 +1,18 @@
 package com.example.kamusistilahhukum.view;
 
-import android.graphics.Color;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.example.kamusistilahhukum.R;
 import com.example.kamusistilahhukum.databinding.FragmentAboutBinding;
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -22,7 +20,7 @@ public class AboutFragment extends Fragment {
     FragmentAboutBinding bindingAbout;
     ShapeableImageView img;
     TextView aboutMe;
-    ImageButton github, telegram;
+    Button github, telegram;
 
     public AboutFragment() {
         // Required empty public constructor
@@ -49,8 +47,20 @@ public class AboutFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         img=bindingAbout.shapeableImageViewMe;
         aboutMe=bindingAbout.tvAboutMe;
+        github=bindingAbout.buttonGithub;
+        telegram=bindingAbout.buttonTelegram;
 
-        img.setImageResource(R.drawable.outline_android_black_48);
+        github.setOnClickListener(view1 -> {
+            Intent githubProflile= new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/naufalHaidar12342"));
+            startActivity(githubProflile);
+
+        });
+
+        telegram.setOnClickListener(view1 -> {
+            Intent telegramProfile= new Intent(Intent.ACTION_VIEW,Uri.parse("https://t.me/heydar12342"));
+            startActivity(telegramProfile);
+        });
+
 
     }
 }

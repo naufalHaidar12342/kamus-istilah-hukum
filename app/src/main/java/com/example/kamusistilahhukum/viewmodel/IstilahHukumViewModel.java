@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.kamusistilahhukum.model.IstilahHukum;
 import com.example.kamusistilahhukum.model.IstilahHukumDatabase;
@@ -15,13 +16,12 @@ import java.util.List;
 public class IstilahHukumViewModel extends AndroidViewModel {
     private IstilahHukumRepository repo;
     private LiveData<List<IstilahHukum>> allIstilahs;
+    private MutableLiveData<IstilahHukum> mutableDetailIstilah=new MutableLiveData<>();
 
     public IstilahHukumViewModel(@NonNull Application application) {
         super(application);
         repo=new IstilahHukumRepository(application);
         allIstilahs=repo.getIstilahs();
-
-
     }
 
     public LiveData<List<IstilahHukum>> getIstilah(){
@@ -36,5 +36,12 @@ public class IstilahHukumViewModel extends AndroidViewModel {
         repo.delete(istilahHukum);
     }
 
+    public void setTextIstilahDetail(IstilahHukum istilahHukum){
+        mutableDetailIstilah.setValue(istilahHukum);
+    }
+
+    public LiveData<IstilahHukum> getTextIstilahDetail(){
+        return mutableDetailIstilah;
+    }
 
 }

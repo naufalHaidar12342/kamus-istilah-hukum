@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.kamusistilahhukum.R;
 import com.example.kamusistilahhukum.databinding.FragmentHomeBinding;
+import com.example.kamusistilahhukum.databinding.FragmentIstilahHukumDetailBinding;
 import com.example.kamusistilahhukum.model.IstilahHukum;
 import com.example.kamusistilahhukum.model.IstilahHukumAdapter;
 import com.example.kamusistilahhukum.viewmodel.IstilahHukumViewModel;
@@ -30,6 +31,7 @@ public class Home extends Fragment {
     RecyclerView rvIstilah;
     IstilahHukumAdapter adapter;
     FragmentHomeBinding bindingHome;
+
     public Home() {
         // Required empty public constructor
     }
@@ -44,6 +46,7 @@ public class Home extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvIstilah=bindingHome.recyclerViewHome;
+
         listIstilahnya=new ArrayList<>();
         adapter=new IstilahHukumAdapter(listIstilahnya);
         rvIstilah.setAdapter(adapter);
@@ -61,7 +64,6 @@ public class Home extends Fragment {
 
             }
         });
-
 
     }
 

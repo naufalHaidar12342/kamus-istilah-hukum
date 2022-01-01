@@ -1,7 +1,6 @@
 package com.example.kamusistilahhukum.model;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;

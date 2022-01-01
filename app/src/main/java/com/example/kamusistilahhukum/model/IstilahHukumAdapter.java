@@ -1,6 +1,6 @@
 package com.example.kamusistilahhukum.model;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +9,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kamusistilahhukum.R;
+import com.example.kamusistilahhukum.view.IstilahHukumDetail;
 
 import java.util.List;
 
 public class IstilahHukumAdapter extends RecyclerView.Adapter<IstilahHukumAdapter.IstilahHukumViewHolder> {
     private final List<IstilahHukum> listIstilah;
+    private onIstilahClickedListener listenerIstilah;
 
     public IstilahHukumAdapter(List<IstilahHukum> listIstilah) {
         this.listIstilah = listIstilah;
@@ -39,6 +39,13 @@ public class IstilahHukumAdapter extends RecyclerView.Adapter<IstilahHukumAdapte
 //                    && oldItem.getDetailDesc().equals(newItem.getDetailDesc());
 //        }
 //    };
+
+    public interface onIstilahClickedListener{
+        void onIstilahClicked(View view, int position);
+    }
+    public void setListenerIstilah(onIstilahClickedListener listener){
+        this.listenerIstilah=listener;
+    }
 
     @NonNull
     @Override
@@ -84,6 +91,8 @@ public class IstilahHukumAdapter extends RecyclerView.Adapter<IstilahHukumAdapte
             paluHakim.setImageResource(R.drawable.outline_gavel_black_36);
 
         }
+
+
     }
 
 
