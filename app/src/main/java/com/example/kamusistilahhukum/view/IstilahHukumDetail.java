@@ -12,15 +12,25 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.kamusistilahhukum.databinding.FragmentIstilahHukumDetailBinding;
+import com.example.kamusistilahhukum.model.IstilahHukum;
 import com.example.kamusistilahhukum.viewmodel.IstilahHukumViewModel;
 
 public class IstilahHukumDetail extends Fragment {
     FragmentIstilahHukumDetailBinding bindingDetail;
     TextView istilah, penjelasanIstilah;
     private IstilahHukumViewModel modelDetail;
+    private IstilahHukumDetail detailHukum;
+
 
     public IstilahHukumDetail() {
         // Required empty public constructor
+    }
+
+    public IstilahHukumDetail newInstance(){
+        if (this.detailHukum==null){
+            detailHukum=new IstilahHukumDetail();
+        }
+        return this.detailHukum;
     }
 
     @Override
@@ -45,14 +55,15 @@ public class IstilahHukumDetail extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         istilah=bindingDetail.tvIstilahDetail;
         penjelasanIstilah=bindingDetail.tvIsiPenjelasan;
-
-        Bundle bundleTerima=this.getArguments();
-        istilah.setText(bundleTerima.getString("istilah_dipilih"));
-        penjelasanIstilah.setText(bundleTerima.getString("penjelasan_lengkap_dipilih"));
-
-
-
     }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getArguments()!=null && getArguments().containsKey(IstilahHukum.ISTILAH_PARCEL)){
+            IstilahHukum panggilIstilah=getArguments().getParcelable(IstilahHukum.ISTILAH_PARCEL);
+            bindingDetail.tvIstilahDetail.setText(panggilIstilah.getIstilah());
+            bindingDetail.tvIsiPenjelasan.setText(panggilIstilah.getDetailDesc());
+        }
+    }
 }

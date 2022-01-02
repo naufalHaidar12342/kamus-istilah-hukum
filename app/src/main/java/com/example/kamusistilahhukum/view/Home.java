@@ -49,10 +49,10 @@ public class Home extends Fragment {
 
         listIstilahnya=new ArrayList<>();
         adapter=new IstilahHukumAdapter(listIstilahnya);
+
         rvIstilah.setAdapter(adapter);
         rvIstilah.setLayoutManager(
                 new LinearLayoutManager(getContext()));
-
         istilahModel=new ViewModelProvider(getActivity()).get(IstilahHukumViewModel.class);
         istilahModel.getIstilah().observe(getActivity(), new Observer<List<IstilahHukum>>() {
             @Override

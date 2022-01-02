@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class IstilahHukumRepository {
-    private IstilahHukumDao panggilIstilahDao;
-    private LiveData<List<IstilahHukum>> semuaIstilah;
+    private final IstilahHukumDao panggilIstilahDao;
+    private final LiveData<List<IstilahHukum>> semuaIstilah;
 
     public IstilahHukumRepository(Application application) {
         IstilahHukumDatabase panggilDB=IstilahHukumDatabase.getDatabaseInstance(application);

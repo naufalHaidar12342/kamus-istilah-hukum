@@ -31,7 +31,7 @@ public abstract class IstilahHukumDatabase extends RoomDatabase {
     }
     //pre populated database
     // semacam dummy data untuk dimasukkan ke database
-    private static RoomDatabase.Callback dbCallback=new Callback() {
+    private static final RoomDatabase.Callback dbCallback=new Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);

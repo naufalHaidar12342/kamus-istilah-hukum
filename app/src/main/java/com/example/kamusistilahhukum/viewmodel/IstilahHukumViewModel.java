@@ -14,9 +14,9 @@ import com.example.kamusistilahhukum.model.IstilahHukumRepository;
 import java.util.List;
 
 public class IstilahHukumViewModel extends AndroidViewModel {
-    private IstilahHukumRepository repo;
-    private LiveData<List<IstilahHukum>> allIstilahs;
-    private MutableLiveData<IstilahHukum> mutableDetailIstilah=new MutableLiveData<>();
+    private final IstilahHukumRepository repo;
+    private final LiveData<List<IstilahHukum>> allIstilahs;
+    private final MutableLiveData<IstilahHukum> mutableDetailIstilah=new MutableLiveData<>();
 
     public IstilahHukumViewModel(@NonNull Application application) {
         super(application);

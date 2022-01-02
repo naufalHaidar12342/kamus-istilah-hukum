@@ -10,8 +10,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.kamusistilahhukum.databinding.FragmentSaranBinding;
+import com.example.kamusistilahhukum.model.IstilahHukum;
+import com.example.kamusistilahhukum.viewmodel.IstilahHukumViewModel;
 import com.google.android.material.textfield.TextInputLayout;
 
 
@@ -26,6 +29,7 @@ public class SaranFragment extends Fragment {
     private FragmentSaranBinding bindingSaran;
     private Button submitBtn;
     private TextInputLayout teksNama, teksShortDesc, teksLongDesc;
+    private IstilahHukumViewModel viewModel;
 
 
 
@@ -69,17 +73,25 @@ public class SaranFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ambilInput();
+
             }
         });
 
     }
 
     public void ambilInput(){
-        String nama= String.valueOf(teksNama.getEditText().getText());
-        String komentar= String.valueOf(teksShortDesc.getEditText().getText());
+        String namaIstilahBaru= String.valueOf(teksNama.getEditText().getText());
+        String shortDescIstilahBaru= String.valueOf(teksShortDesc.getEditText().getText());
+        String detailDescIstilahBaru= String.valueOf(teksLongDesc.getEditText().getText());
 
+        IstilahHukum simpanIstilahBaru= new IstilahHukum(namaIstilahBaru, shortDescIstilahBaru,detailDescIstilahBaru);
 
+        viewModel= new ViewModelProvider(getActivity()).get(IstilahHukumViewModel.class);
+        viewModel.insert(simpanIstilahBaru);
 
+        bindingSaran.textInputLayoutNama.getEditText().getText().clear();
+        bindingSaran.textInputLayoutShortDesc.getEditText().getText().clear();
+        bindingSaran.textInputLayoutLongDesc.getEditText().getText().clear();
 
     }
 }
