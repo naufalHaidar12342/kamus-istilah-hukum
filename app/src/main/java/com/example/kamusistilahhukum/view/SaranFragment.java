@@ -1,6 +1,11 @@
 package com.example.kamusistilahhukum.view;
 
+import static android.os.Build.VERSION_CODES.R;
+
+import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +17,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.kamusistilahhukum.R;
 import com.example.kamusistilahhukum.databinding.FragmentSaranBinding;
 import com.example.kamusistilahhukum.model.IstilahHukum;
 import com.example.kamusistilahhukum.viewmodel.IstilahHukumViewModel;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 
@@ -29,6 +36,7 @@ public class SaranFragment extends Fragment {
     private FragmentSaranBinding bindingSaran;
     private Button submitBtn;
     private TextInputLayout teksNama, teksShortDesc, teksLongDesc;
+    private TextInputEditText editNama, editShortDesc,editLongDesc;
     private IstilahHukumViewModel viewModel;
 
 
@@ -67,17 +75,19 @@ public class SaranFragment extends Fragment {
         teksShortDesc = bindingSaran.textInputLayoutShortDesc;
         teksLongDesc= bindingSaran.textInputLayoutLongDesc;
 
+        editNama=bindingSaran.editTextNama;
+        editShortDesc=bindingSaran.editTextShortDesc;
+        editLongDesc=bindingSaran.editTextLongDesc;
 
         submitBtn= bindingSaran.submitButton;
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ambilInput();
+        submitBtn.setOnClickListener(v -> {
+            ambilInput();
+            successDialog();
 
-            }
         });
 
     }
+
 
     public void ambilInput(){
         String namaIstilahBaru= String.valueOf(teksNama.getEditText().getText());
@@ -92,6 +102,44 @@ public class SaranFragment extends Fragment {
         bindingSaran.textInputLayoutNama.getEditText().getText().clear();
         bindingSaran.textInputLayoutShortDesc.getEditText().getText().clear();
         bindingSaran.textInputLayoutLongDesc.getEditText().getText().clear();
+
+    }
+
+    public void successDialog(){
+        int themeResID=com.example.kamusistilahhukum.R.style.dialog_styling;
+        Dialog saranSuccess= new Dialog(getActivity(), themeResID);
+
+        int customLayout= com.example.kamusistilahhukum.R.layout.custom_success_dialog;
+        saranSuccess.setContentView(customLayout);
+
+        int OK_buttonID=com.example.kamusistilahhukum.R.id.buttonOkDialog;
+        Button confirmButton=saranSuccess.findViewById(OK_buttonID);
+
+        confirmButton.setOnClickListener(v -> {
+            saranSuccess.dismiss();
+        });
+
+
+    }
+
+    public void validateIstilah(){
+        editNama.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
     }
 }

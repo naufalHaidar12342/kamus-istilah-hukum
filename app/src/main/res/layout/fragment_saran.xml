@@ -34,10 +34,12 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutNama"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="302dp"
+        android:layout_height="69dp"
         android:layout_marginTop="20dp"
         android:hint="Nama Istilah"
+        app:errorEnabled="true"
+        app:helperTextEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,10 +80,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutShortDesc">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextLongDesc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Tambahan definisi (sepahamnya)"
-            android:lines="4"/>
+            android:lines="4" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
