@@ -50,4 +50,8 @@ dependencies {
    - https://github.com/kaqfa/android_playlist
 
 2. Room + ViewModel + LiveData + RecyclerView (MVVM) Part 1 - WHAT ARE ANDROID ARCHITECTURE COMPONENTS? by Coding in Flow
+
    - https://www.youtube.com/watch?v=ARpn-1FPNE4&list=PLrnPJCHvNZuDihTpkRs6SpZhqgBqPU118&ab_channel=CodinginFlow
+
+3. BottomNavigationView with Fragments - Android Studio Tutorial by Coding in Flow
+   - https://www.youtube.com/watch?v=tPV8xA7m-iw&t=366s
