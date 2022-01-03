@@ -29,6 +29,7 @@ public abstract class IstilahHukumDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
+
     //pre populated database
     // semacam dummy data untuk dimasukkan ke database
     private static final RoomDatabase.Callback dbCallback=new Callback() {

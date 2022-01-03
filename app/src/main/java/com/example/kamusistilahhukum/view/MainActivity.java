@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         //menyambungkan
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(bottomNavbarListener);
+
         // ketika aplikasi dijalankan, fragment yang akan dibuka pertama kali adalah fragment home
         getSupportFragmentManager()
                 .beginTransaction()
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new AboutFragment();
                     break;
             }
+
             //jika selectedFragment tidak null, akan menjalankan wadah_fragment
             if (selectedFragment != null) {
                 getSupportFragmentManager()
