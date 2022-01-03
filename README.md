@@ -39,7 +39,7 @@ dependencies {
 
 ## Demonstrasi
 
-![Kamus-istilah-hukum-demo](\readme-assets\tQvUUUpNAT.gif)
+![Kamus-istilah-hukum-demo](readme-assets/tQvUUUpNAT.gif)
 
 <div id="references">
 
